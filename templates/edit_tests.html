@@ -1,0 +1,17 @@
+
+
+{%extends 'base.html'%}
+{%block body%}
+{%if success%}
+    <h2>{{success}}</h2>
+{%endif%}
+<form action="/tests/edit" method="post">
+    <label for="">What test would you like to edit?</label>
+    <input class="input" type="number" name="test_no"placeholder="Enter Test Number" id="">
+    <label for="">What test question would you like to edit?</label>
+    <input class="input"type="number" name="question_no"placeholder="Enter Test Question Number" id="">
+    <label for="">What is the new question?</label>
+    <input class="input"type="text" name="question"placeholder="Enter New Question" id="">
+    <input type="submit" value="Edit Test">
+</form>
+{%endblock%}

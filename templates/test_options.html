@@ -1,0 +1,50 @@
+<style>
+  .options{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+  }
+  .card{
+    background-color: #f3f3f3;
+    width: 45%;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    margin: 2.5%;
+    align-items: center;
+    justify-content: space-evenly;
+    text-decoration:none;
+    color:black;
+    min-height: 200px;
+  }
+  .card:hover{
+    box-shadow: 0 0 10px;
+  }
+  .card ion-icon{
+    font-size:72px;
+  }
+</style>
+
+{%extends 'base.html'%}
+{%block body%}
+  <div class="options">
+    <a href="/tests/view" class="card">
+      <ion-icon name="create-outline"></ion-icon>
+      <p >Take Tests</p>
+    </a>
+    <a href="/tests/create" class="card">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <p>Create Test</p>
+    </a>
+    <a href="/tests/edit"class="card">
+      <ion-icon name="pencil-outline"></ion-icon>
+      <p>Edit Test</p>
+    </a>
+    <a href="/tests/delete"class="card">
+      <ion-icon name="close-circle-outline"></ion-icon>
+      <p>Delete Test</p>
+    </a>
+  </div>
+{% endblock %}

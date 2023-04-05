@@ -1,0 +1,22 @@
+<style>
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h2{
+    text-align: center;
+  }
+</style>
+{% extends 'base.html'%}
+{%block body%}
+  {%if success%}
+    <h2>{{success}}</h2>
+  {%endif%}
+<form action="/tests/create" method="post">
+<!--  <input class="input" type="email" name="email"placeholder="Enter Email" id="">-->
+  <input class="input"type="email" name="email"placeholder="Enter Email" id="">
+  <input class="input"type="number" name="num_questions"placeholder="Enter Number of Questions" id="">
+  <input type="submit" value="Continue">
+</form>
+{%endblock%}

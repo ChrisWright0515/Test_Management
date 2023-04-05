@@ -1,0 +1,63 @@
+<style>
+  p{
+    margin: 10px auto;
+  }
+  .filter_cont{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+  }
+  .filter{
+    text-decoration: none;
+    color: black;
+    border: 2px solid;
+    padding: 5px;
+  }
+  .filter:hover{
+    box-shadow: 0 0 10px;
+
+  }
+  .show_test{
+    margin: 10px 0;
+  }
+  .user_card_cont{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    font-size: 80%;
+  }
+  .user_card{
+    background-color: #f3f3f3;
+    width: 45%;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    margin: 2.5%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .user_card:hover{
+    box-shadow: 0 0 10px
+  }
+</style>
+
+{%extends 'base.html'%}
+{%block body%}
+  <div class="filter_cont">
+    <a class="filter" href="{{url_for('show_type_accounts',type=types[0])}}">Students</a>
+    <a class="filter" href="{{url_for('show_type_accounts',type=types[1])}}">Teachers</a>
+  </div>
+  <div class="user_card_cont">
+    {% for user in users%}
+      <div class="user_card">
+<!--        <p class="user_no">User Number: {{user[0]}}</p>-->
+        <p class="user_name">Name: {{user[1] + ' ' + user[2]}}</p>
+        <p class="user_email">Email: {{user[3]}}</p>
+        <p class="user_type">Type: {{user[5]}}</p>
+        {%if user[5] == 'STUDENT'%}
+          <a class="filter show_test" href="{{url_for('show_test_answers',user_no=user[0])}}">Show test answers</a>
+        {%endif%}
+      </div>
+    {% endfor%}
+  </div>
+{%endblock%}

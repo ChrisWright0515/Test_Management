@@ -1,0 +1,29 @@
+<style>
+
+
+    .status_message{
+        text-align: center;
+    }
+</style>
+{% extends 'base.html'%}
+{%block body%}
+{% if status%}
+    <h1 class="status_message">{{status}}</h1>
+{%endif%}
+
+<form action="/register" method="post">
+    <input class="input" type="text" name="first_name" placeholder="First Name">
+    <input class="input" type="text" name="last_name" placeholder="Last Name">
+    <input class="input" type="text" name="email"  placeholder="Email">
+    <input class="input" type="password" name="password"  placeholder="Password">
+    <div>
+        <label for="teach_type">Teacher</label>
+        <input id="teach_type" type="radio" name="type" value="TEACHER">
+    </div>
+    <div>
+        <label for="stu_type">Student</label>
+        <input id="stu_type" type="radio" name="type" value="STUDENT">
+    </div>
+    <input type="submit" value="Register Account">
+</form>
+{% endblock %}

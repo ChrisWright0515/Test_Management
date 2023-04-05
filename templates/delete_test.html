@@ -1,0 +1,15 @@
+<style>
+  h2{
+    text-align: center
+  }
+</style>
+{%extends 'base.html'%}
+  {%block body%}
+    {%if success %}
+      <h2>{{success}}</h2>
+    {%endif%}
+    <form action="/tests/delete" method="post">
+      <input class="input" type="number" name="test_no"placeholder="Enter Test Number" id="">
+      <input type="submit" value="Delete Test">
+    </form>
+  {%endblock%}

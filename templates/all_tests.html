@@ -1,0 +1,71 @@
+<style>
+  p{
+    width: fit-content;
+    text-align: center;
+    margin: 10px auto;
+  }
+  h1{
+    font-size: 90%;
+  }
+  h2{
+    text-align:center;
+  }
+  .card_head{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin: 10px 0;
+  }
+  .test_card_cont{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .test_card{
+    background-color: #f3f3f3;
+    width: 45%;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    margin: 2.5%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .test_card:hover{
+    box-shadow: 0 0 10px;
+  }
+  .test_link{
+    text-decoration: none;
+    color: black;
+    margin:10px auto;
+    border: 2px solid;
+    padding: 5px;
+  }
+  .test_link:hover{
+    box-shadow: 0 0 10px;
+  }
+</style>
+
+{%extends 'base.html'%}
+{% block body %}
+  {%if success%}
+    <h2>{{success}}</h2>
+  {%endif%}
+  <div class="test_card_cont">
+    {%for test in tests%}
+      <div class="test_card" id="{{test[0]}}">
+        <div class="card_head">
+          <h1>Test Number: {{test[0]}}.</h1>
+          <h1>Teacher: {{test[1]}}</h1>
+        </div>
+        {%for question in questions %}
+          {%if test[0] == question[0]%}
+            <p>{{question[1]}}. {{question[2]}}</p>
+          {%endif%}
+        {%endfor%}
+        <a class="test_link" href="{{url_for('show_test_form',test_no=test[0])}}">Take Test</a>
+      </div>
+    {%endfor%}
+  </div>
+{%endblock%}

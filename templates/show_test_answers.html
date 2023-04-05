@@ -1,0 +1,39 @@
+<style>
+  .test_card_cont{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    font-size: 80%;
+  }
+  .test_card{
+    border: 2px solid;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    margin: 2.5%;
+    align-items: center;
+  }
+  .ques_ans{
+    margin: 10px auto;
+    width: 100%;
+    text-align: center;
+  }
+</style>
+{%extends 'base.html'%}
+{%block body%}
+  <div class="test_card_cont">
+    {%for i in range(amt_tests)%}
+      <div class="test_card">
+        <h1>Test Number {{amt_questions[i][1]}}</h1>
+        {%for j in range(total_questions)%}
+          {%if all_tests[j][1] == amt_questions[i][1]%}
+            <div class="ques_ans">
+              <h3>{{all_tests[j][2]}}. {{all_tests[j][4]}}</h3>
+              <p>Answer: {{all_tests[j][3]}}</p>
+            </div>
+          {%endif%}
+        {%endfor%}
+      </div>
+    {%endfor%}
+  </div>
+{%endblock%}
