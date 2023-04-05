@@ -3,7 +3,7 @@ from sqlalchemy import Column, INTEGER, String, Numeric, Float, create_engine, t
 
 app = Flask(__name__)
 # CODE
-db_url = 'mysql://root:Tallb0y515@localhost/test_management'
+db_url = 'mysql://root:0515@localhost/test_management'
 engine = create_engine(db_url, echo=True)
 conn = engine.connect()
 
